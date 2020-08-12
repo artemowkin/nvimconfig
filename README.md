@@ -6,7 +6,7 @@ It's my neovim config
 
 ### Vim-plug
 
-Firs of all install vim-plug
+First of all install vim-plug
 
 ```
 $ sudo apt install curl
@@ -16,7 +16,7 @@ $ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ### init.vim
 
-After installing the vim-plug cp `init.vim` into the following directory:
+After installing the vim-plug copy `init.vim` into the following directory:
 
 ```
 $ cp init.vim ~/.config/nvim/
