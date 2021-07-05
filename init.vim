@@ -6,6 +6,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
 " color schemes
 Plug 'flazz/vim-colorschemes'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 call plug#end()
 
@@ -76,7 +77,7 @@ set incsearch
 set ignorecase
 
 
-colorscheme OceanicNext
+colorscheme onehalfdark
 
 " mappings
 
