@@ -14,6 +14,14 @@ $ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+### LSP
+
+Install the python LSP server:
+
+```
+$ npm install -g pyright
+```
+
 ### init.vim
 
 After installing the vim-plug copy `init.vim` into the following directory:
