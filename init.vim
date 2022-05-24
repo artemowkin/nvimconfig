@@ -7,6 +7,11 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+" Полоска с именем файла и опциями
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'Lokaltog/powerline'
+
 " менюшка с файлами и папками слева
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " автоматическое закрытие скобок, ковычек
@@ -58,6 +63,8 @@ set showtabline=1 " Отключить верхнюю панель
 " Удобное поведение backspace
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
+" terminal acceleration
+set ttyfast
 
 set wrap
 set linebreak
@@ -84,7 +91,14 @@ set incsearch
 set ignorecase
 
 
+" Цветовая схема и прозрачный фон
 colorscheme gruvbox
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
+" Airline theme
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts=1
 
 " mappings
 
