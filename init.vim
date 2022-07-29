@@ -12,8 +12,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-airline'
 Plug 'Lokaltog/powerline'
 
-" менюшка с файлами и папками слева
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " автоматическое закрытие скобок, ковычек
 Plug 'jiangmiao/auto-pairs'
 " color schemes
@@ -26,7 +24,7 @@ filetype plugin indent on
 
 
 " Полоска на 79 символе и номера строк
-set colorcolumn=79
+set colorcolumn=150
 set nu
 
 " Настройка табов
@@ -53,6 +51,12 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 
 " Включить поддержку синтаксиса
 syntax on
+
+
+" Netrw file explorer settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
 
 
 set mousehide " Спрятать курсор мыши, когда печатаешь текст
