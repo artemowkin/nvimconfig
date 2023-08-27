@@ -4,14 +4,19 @@ It's my neovim config
 
 ## Setup
 
-### Vim-plug
+### Dependencies
+
+```
+sudo dnf install gcc g++
+```
+
+### packer.nvim
 
 First of all install vim-plug
 
 ```
-$ sudo apt install curl
-$ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
 ### LSP
@@ -19,21 +24,22 @@ $ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 Install the python LSP server:
 
 ```
-$ npm install -g pyright
+npm install -g pyright
 ```
 
-### init.vim
-
-After installing the vim-plug copy `init.vim` into the following directory:
+And go LSP server
 
 ```
-$ cp init.vim ~/.config/nvim/
+sudo dnf install golang-x-tools-gopls
 ```
+
+### Installing
+
+After installing the vim-plug copy all files from repository to `~/.config/nvim` directory
 
 Open NeoVim and install plugins
 
 ```
-$ nvim
-:PlugInstall
+:PackerSync
 ```
 

@@ -1,0 +1,8 @@
+require('options')
+require('keymaps')
+require('autocommands')
+require('plugins')
+require('plugins.telescope')
+require('plugins.treesitter')
+require('plugins.catpuccin')
+require('lsp')
