@@ -1,5 +1,3 @@
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
@@ -10,6 +8,19 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/nvim-cmp'
 	use 'onsails/lspkind-nvim'
+    use 'p00f/alabaster.nvim'
+
+    use {
+        'zenbones-theme/zenbones.nvim',
+        requires = { 'rktjmp/lush.nvim' }
+    }
+
+    use {
+        "stevearc/conform.nvim",
+        config = function()
+              require("conform").setup()
+        end,
+    }
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -23,6 +34,11 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
 
 	use {
 		'nvim-tree/nvim-web-devicons',
@@ -63,8 +79,6 @@ return require('packer').startup(function(use)
 
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'rafamadriz/friendly-snippets'
-
-	use { "catppuccin/nvim", as = "catppuccin" }
 
 	if packer_bootstrap then
 		require('packer').sync()

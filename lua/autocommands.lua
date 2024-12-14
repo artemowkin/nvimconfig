@@ -19,16 +19,25 @@ vim.api.nvim_create_autocmd({'BufWritePre'}, {
 vim.api.nvim_create_autocmd({'BufWritePre'}, {
   pattern = '*.go',
   callback = function()
-    vim.lsp.buf.formatting_sync(nil, 3000)
+    vim.lsp.buf.format(nil, 3000)
   end
 })
 
 
-local TrimWhiteSpaceGrp = vim.api.nvim_create_augroup
-('TrimWhiteSpaceGrp', {})
+local TrimWhiteSpaceGrp = vim.api.nvim_create_augroup("TrimWhitespaceGroup", {
+    clear = false
+})
+
 vim.api.nvim_create_autocmd('BufWritePre', {
 	group = TrimWhiteSpaceGrp,
-  pattern = '*',
-  command = '%s/\\s\\+$//e',
+    pattern = '*',
+    command = '%s/\\s\\+$//e',
+})
+
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
+    pattern = '*.py',
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+    end
 })
 

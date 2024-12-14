@@ -9,7 +9,7 @@ map('n', ']d', vim.diagnostic.goto_next, opts)
 map('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
 	map('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
 	map('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 	map('n', 'gr', vim.lsp.buf.references, bufopts)
-	map('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+	map('n', '<leader>f', vim.lsp.buf.format, bufopts)
 end
 
 local cmp = require('cmp')
@@ -46,6 +46,9 @@ cmp.setup({
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
+  },
+  completion = {
+      autocomplete = {},
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
@@ -90,6 +93,11 @@ lspconfig.pyright.setup(config({
     flags = {
         -- This will be the default in neovim 0.7+
         debounce_text_changes = 150,
+    },
+    settings = {
+        pyright = {
+            disableOrganizeImports = true,
+        }
     }
 }))
 
@@ -107,4 +115,8 @@ lspconfig.gopls.setup(config({
 			staticcheck = true,
 		},
 	},
+}))
+
+lspconfig.ruff.setup(config({
+	on_attach = on_attach,
 }))
